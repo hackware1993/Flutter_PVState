@@ -6,7 +6,7 @@ Direct access to state is the red line that cannot be compromised, not controlle
 
 ## Getting Started
 
-![effect.gif](https://github.com/hackware1993/flutter-pvstate/blob/master/effect.gif?raw=true)
+![effect.gif](https://github.com/hackware1993/Flutter_PVState/blob/master/effect.gif?raw=true)
 
 ```dart
 void main() {
