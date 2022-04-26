@@ -1,17 +1,6 @@
-# flutter_pvstate
-
-Extremely lightweight state management framework in only 120 lines of code.
-
-Direct access to state is the red line that cannot be compromised, not controller.something.
-
-## Getting Started
-
-![effect.gif](https://github.com/hackware1993/flutter-pvstate/blob/master/effect.gif?raw=true)
-
-```dart
-void main() {
-  runApp(Stateful(state: CountVState()));
-}
+import 'package:flutter/material.dart';
+import 'package:flutter_constraintlayout/flutter_constraintlayout.dart';
+import 'package:flutter_pvstate/base.dart';
 
 abstract class CounterPState extends BasePagePState {
   int count = 0;
@@ -60,4 +49,3 @@ class CountVState extends CounterPState with VState {
     );
   }
 }
-```
