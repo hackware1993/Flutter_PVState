@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_constraintlayout/flutter_constraintlayout.dart';
-import 'package:flutter_pvstate/base.dart';
+import 'package:flutter_pvstate/pv_state.dart';
 
+/// Presenter state, logic is written here
 abstract class CounterPState extends BasePagePState {
-  int count = 0;
+  final count = obs(0);
 
   void add() {
-    setState(() {
-      count++;
-    });
+    count.value = count.value + 1;
   }
+
+// int count = 0;
+//
+// void add() {
+//   setState(() {
+//     count++;
+//   });
+// }
 }
 
-class CountVState extends CounterPState with VState {
+/// View state, view is written here
+class CounterVState extends CounterPState with VState {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,12 +35,28 @@ class CountVState extends CounterPState with VState {
             ).applyConstraint(
               centerTo: parent,
             ),
-            Text(
-              '$count', // Direct access to state
-              style: Theme.of(context).textTheme.headline4,
+
+            /// Local update
+            ValueListenableBuilder(
+              valueListenable: count,
+              builder: (_, value, __) {
+                return Text(
+                  '$value',
+                  style: Theme.of(context).textTheme.headline4,
+                );
+              },
             ).applyConstraint(
               outBottomCenterTo: rId(0),
             ),
+
+            /// Global update
+            // Text(
+            //   '$count', // Direct access to count
+            //   style: Theme.of(context).textTheme.headline4,
+            // ).applyConstraint(
+            //   outBottomCenterTo: rId(0),
+            // ),
+
             FloatingActionButton(
               onPressed: add, // Widget and logic separation
               child: const Icon(Icons.add),
