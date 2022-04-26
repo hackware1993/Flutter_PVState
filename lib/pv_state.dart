@@ -37,13 +37,12 @@ abstract class BaseState<T extends StatefulWidget> extends State<T> {
     super.dispose();
     if (this is BasePagePStateMixin) {
       (this as BasePagePStateMixin).onPop();
-      if (pageStack.isNotEmpty) {
-        pageStack.removeLast();
-        if (pageStack.isNotEmpty) {
-          scheduleMicrotask(() {
-            pageStack.last.onPopNext();
-          });
-        }
+      int index = pageStack.indexOf(this as BasePagePState);
+      pageStack.removeAt(index);
+      if (index == pageStack.length - 1 && pageStack.isNotEmpty) {
+        scheduleMicrotask(() {
+          pageStack.last.onPopNext();
+        });
       }
     }
   }
