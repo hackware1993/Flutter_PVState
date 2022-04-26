@@ -1,4 +1,4 @@
-# flutter_pvstate
+# Flutter_PVState
 
 Extremely lightweight state management framework in only 120 lines of code.
 
