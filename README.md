@@ -2,7 +2,7 @@
 
 Extremely lightweight state management framework in only 120 lines of code.
 
-Direct access to state is the red line that cannot be compromised, not controller.something.
+Direct access to state is the bottom line, indirect access such as controller.something is completely unacceptable.
 
 ## Getting Started
 
