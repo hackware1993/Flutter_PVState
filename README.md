@@ -5,6 +5,8 @@ Extremely lightweight state management framework in only 120 lines of code.
 Direct access to state is the bottom line, indirect access such as controller.something is
 completely unacceptable.
 
+**I have developed the world's fastest general purpose sorting algorithm, which is on average 3 times faster than Quicksort and up to 20 times faster**, [ChenSort](https://github.com/hackware1993/ChenSort)
+
 ## Getting Started
 
 ![effect.gif](https://github.com/hackware1993/Flutter_PVState/blob/master/effect.gif?raw=true)
