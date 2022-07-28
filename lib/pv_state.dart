@@ -81,15 +81,11 @@ mixin BaseDialogPStateMixin {}
 
 mixin BaseWidgetPStateMixin {}
 
-mixin VState {
-  Widget build(BuildContext context);
-}
-
-class Stateful<T extends BasePState, VState> extends StatefulWidget {
+class Stateful<T extends BasePState> extends StatefulWidget {
   final T state;
   final Map<String, dynamic>? arguments;
 
-  static Stateful of<S extends BasePState, VState>(
+  static Stateful of<S extends BasePState>(
     S newState, {
     Key? key,
     Map<String, dynamic>? arguments,
